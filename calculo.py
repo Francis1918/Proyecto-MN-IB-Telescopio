@@ -14,15 +14,15 @@ def calcular_y_dibujar(self):
         Px = self.Px_var.get()
         Py = self.Py_var.get()
     except tk.TclError:
-        messagebox.showerror("Error", "Por favor, ingrese valores numéricos válidos.")
+        messagebox.showerror("Error", "Solo ingrese numeros.")
         return
 
     if Py < 0:
-        messagebox.showerror("Error", "La coordenada Py debe ser mayor o igual a 0.")
+        messagebox.showerror("Error", "Py >= 0.")
         return
 
     if not (0 < L < B < d_max):
-        messagebox.showerror("Error", "Los parámetros deben cumplir 0 < L < B < d_max.")
+        messagebox.showerror("Error", "Los valores rebasan los límites establecidos:\n")
         return
 
     if Px == 0 and Py == 0:
@@ -58,7 +58,7 @@ def calcular_y_dibujar(self):
             break
 
     if not encontrado:
-        messagebox.showwarning("Advertencia", "Punto fuera de alcance. Se graficará con pistones en sus límites.")
+        messagebox.showwarning("Advertencia", "Punto fuera de alcance.")
 
         x1 = d_max
         x2 = D
@@ -86,8 +86,8 @@ def calcular_y_dibujar(self):
 
     texto_salida = (
         f"\u00c1ngulo del espejo respecto a la horizontal: {angulo_espejo:.2f}°\n"
-        f"Longitud del pistón izquierdo (x1): {x1:.2f}\n"
-        f"Longitud del pistón derecho (x2): {x2:.2f}"
+        f"Largo del pistón izquierdo (x1): {x1:.2f}\n"
+        f"Largo del pistón derecho (x2): {x2:.2f}"
     )
     self.etiqueta_salida.config(text=texto_salida)
 
