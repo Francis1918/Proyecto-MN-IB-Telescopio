@@ -26,7 +26,7 @@ def calcular_y_dibujar(self):
         return
 
     if Px == 0 and Py == 0:
-        messagebox.showwarning("Advertencia", "Punto P(0, 0) no es válido. Se usará (1, 1) como referencia.")
+        messagebox.showwarning("Advertencia", "Punto origen no es válido. Se usará (1, 1) como una referencia.")
         Px = 1
         Py = 1
 
